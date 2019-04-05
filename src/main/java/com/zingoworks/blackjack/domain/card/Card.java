@@ -3,15 +3,21 @@ package com.zingoworks.blackjack.domain.card;
 import java.util.Objects;
 
 public class Card {
+    public static final int MAX_CARD_NUMBER = 10;
+    public static final int MIN_CARD_RANGE = 1;
+    public static final int MAX_CARD_RANGE = 13;
+
     private final Suit suit;
     private final String name;
+    private final int number;
 
     private Card(Suit suit, int number) {
-        if(suit == null || number < 1 || number > 13) {
+        if(suit == null || number < MIN_CARD_RANGE || number > MAX_CARD_RANGE) {
             throw new IllegalArgumentException("잘못 된 카드 정보입니다.");
         }
 
         this.suit = suit;
+        this.number = convertToValidNumber(number);
         this.name = convertToName(number);
     }
 
@@ -29,6 +35,18 @@ public class Card {
         }
 
         return String.valueOf(number);
+    }
+
+    private int convertToValidNumber(int number) {
+        if(number > MAX_CARD_NUMBER) {
+            return MAX_CARD_NUMBER;
+        }
+
+        return number;
+    }
+
+    public int getNumber() {
+        return number;
     }
 
     @Override
