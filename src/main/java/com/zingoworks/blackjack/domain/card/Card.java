@@ -8,7 +8,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @EqualsAndHashCode
-@ToString
 public class Card {
     public static final int MAX_CARD_NUMBER = 10;
     public static final int MIN_CARD_RANGE = 1;
@@ -50,5 +49,13 @@ public class Card {
         }
 
         return number;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "suit=" + suit +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

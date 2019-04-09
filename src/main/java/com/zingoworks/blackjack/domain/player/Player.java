@@ -41,6 +41,10 @@ public class Player implements BlackjackPlayer{
     @Transient
     private Chip chip = new Chip(DEFAULT_CHIP_AMOUNT);
 
+    public void betChip(int amount) {
+        this.chip = chip.subtract(amount);
+    }
+
     @Override
     public void initialize() {
         this.hand = new Hand();

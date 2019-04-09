@@ -1,12 +1,14 @@
 package com.zingoworks.blackjack.domain;
 
 import com.zingoworks.blackjack.domain.card.Card;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.zingoworks.blackjack.domain.HandType.*;
 
+@ToString
 public class Hand {
     public static final int BLACKJACK_NUMBER = 21;
     public static final int ACE_RULE_NUMBER = 10;
