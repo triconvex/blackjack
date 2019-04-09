@@ -1,7 +1,6 @@
 package com.zingoworks.blackjack.domain.player;
 
 import com.zingoworks.blackjack.domain.card.Card;
-import com.zingoworks.blackjack.domain.HandType;
 
 public interface BlackjackPlayer {
 
@@ -9,5 +8,7 @@ public interface BlackjackPlayer {
 
     void draw(Card card);
 
-    HandType getHandType();
+    boolean isBurst();
+
+    boolean isBlackjack();
 }

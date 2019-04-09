@@ -1,7 +1,7 @@
 package com.zingoworks.blackjack.domain;
 
 public enum ResultType {
-    WINNER,
-    LOSER,
+    PLAYER_WIN,
+    PLAYER_LOSE,
     TIE
 }
