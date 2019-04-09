@@ -9,7 +9,7 @@ import static com.zingoworks.blackjack.domain.HandType.*;
 
 public class Hand {
     public static final int BLACKJACK_NUMBER = 21;
-    public static final int SUMABLE_WHEN_ACE = 10;
+    public static final int ACE_RULE_NUMBER = 10;
 
     private List<Card> hand = new ArrayList<>();
 
@@ -20,7 +20,7 @@ public class Hand {
     public int getTotal() {
         int sum = hand.stream().mapToInt(Card::getNumber).sum();
         if (hasAce()) {
-            return sum + SUMABLE_WHEN_ACE > BLACKJACK_NUMBER ? sum : sum + SUMABLE_WHEN_ACE;
+            return sum + ACE_RULE_NUMBER > BLACKJACK_NUMBER ? sum : sum + ACE_RULE_NUMBER;
         }
         return sum;
     }
