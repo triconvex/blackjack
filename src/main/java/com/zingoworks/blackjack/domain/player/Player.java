@@ -2,12 +2,20 @@ package com.zingoworks.blackjack.domain.player;
 
 import com.zingoworks.blackjack.domain.card.Card;
 import com.zingoworks.blackjack.domain.Chip;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
 public class Player {
     public static final int DEFAULT_CHIP_AMOUNT = 2000;
 

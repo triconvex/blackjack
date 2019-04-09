@@ -1,7 +1,14 @@
 package com.zingoworks.blackjack.domain.card;
 
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
 public class Card {
     public static final int MAX_CARD_NUMBER = 10;
     public static final int MIN_CARD_RANGE = 1;
@@ -43,31 +50,5 @@ public class Card {
         }
 
         return number;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Card card = (Card) o;
-        return suit == card.suit &&
-                Objects.equals(name, card.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(suit, name);
-    }
-
-    @Override
-    public String toString() {
-        return "Card{" +
-                "suit=" + suit +
-                ", name='" + name + '\'' +
-                '}';
     }
 }
