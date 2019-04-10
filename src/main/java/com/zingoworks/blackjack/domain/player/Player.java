@@ -6,19 +6,13 @@ import com.zingoworks.blackjack.domain.Chip;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-import static com.zingoworks.blackjack.domain.HandType.BLACKJACK;
-import static com.zingoworks.blackjack.domain.HandType.BURST;
-
 @Getter
 @Setter
-@EqualsAndHashCode
-@ToString
-public class Player implements BlackjackPlayer{
+public class Player extends BasePlayer {
     public static final int DEFAULT_CHIP_AMOUNT = 2000;
 
     @Id
@@ -45,25 +39,5 @@ public class Player implements BlackjackPlayer{
 
     public void betChip(int amount) {
         this.chip = this.chip.subtract(amount);
-    }
-
-    @Override
-    public void initialize() {
-        this.hand = new Hand();
-    }
-
-    @Override
-    public void draw(Card card) {
-        this.hand.receiveCard(card);
-    }
-
-    @Override
-    public boolean isBurst() {
-        return this.hand.getHandType().equals(BURST);
-    }
-
-    @Override
-    public boolean isBlackjack() {
-        return this.hand.getHandType().equals(BLACKJACK);
     }
 }
