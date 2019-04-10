@@ -9,6 +9,7 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
+@Entity
 public class Player extends BasePlayer {
     public static final int DEFAULT_CHIP_AMOUNT = 2000;
 
