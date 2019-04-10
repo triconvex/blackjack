@@ -1,9 +1,6 @@
 package com.zingoworks.blackjack.domain.player;
 
-import com.zingoworks.blackjack.domain.Hand;
-import com.zingoworks.blackjack.domain.card.Card;
 import com.zingoworks.blackjack.domain.Chip;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,9 +27,6 @@ public class Player extends BasePlayer {
     @Size(min = 2, max = 20)
     @Column(nullable = false, length = 20)
     private String name;
-
-    @Transient
-    private Hand hand = new Hand();
 
     @Transient
     private Chip chip = new Chip(DEFAULT_CHIP_AMOUNT);

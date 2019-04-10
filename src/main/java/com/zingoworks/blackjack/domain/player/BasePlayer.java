@@ -32,4 +32,8 @@ public class BasePlayer implements BlackjackPlayer {
     public boolean isBlackjack() {
         return this.hand.getHandType().equals(BLACKJACK);
     }
+
+    public Hand getHand() {
+        return hand;
+    }
 }

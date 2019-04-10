@@ -21,10 +21,9 @@ public class Hand {
 
     public int getTotal() {
         int sum = hand.stream().mapToInt(Card::getNumber).sum();
-        if (hasAce()) {
-            return sum + ACE_RULE_NUMBER > BLACKJACK_NUMBER ? sum : sum + ACE_RULE_NUMBER;
-        }
-        return sum;
+        return (hasAce() && sum + ACE_RULE_NUMBER < BLACKJACK_NUMBER)
+                ? sum + ACE_RULE_NUMBER
+                : sum;
     }
 
     public HandType getHandType() {
