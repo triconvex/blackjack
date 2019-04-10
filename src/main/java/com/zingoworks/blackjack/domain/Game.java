@@ -1,7 +1,7 @@
 package com.zingoworks.blackjack.domain;
 
 import com.zingoworks.blackjack.domain.player.Dealer;
-import com.zingoworks.blackjack.domain.player.Player;
+import com.zingoworks.blackjack.domain.player.User;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,52 +19,52 @@ public class Game {
     public static final int ZERO = 0;
 
     private Dealer dealer = new Dealer();
-    private Player player;
+    private User user;
     private Chip bet = new Chip(ZERO);
     private Deck deck = Deck.newInstance();
 
     private long id;
 
-    public Game(Player player) {
-        this.player = player;
+    public Game(User user) {
+        this.user = user;
     }
 
     public void start(int amount) {
         this.bet = new Chip(amount * 2);
-        this.player.betChip(amount);
+        this.user.betChip(amount);
 
         this.dealer.draw(deck.pop());
         this.dealer.draw(deck.pop());
-        this.player.draw(deck.pop());
-        this.player.draw(deck.pop());
+        this.user.draw(deck.pop());
+        this.user.draw(deck.pop());
     }
 
     public ResultType play() {
         if(isBlackjack()) {
-            if(dealer.isTie(player)) {
+            if(dealer.isTie(user)) {
                 log.debug("*** 둘 다 블랙잭");
                 return TIE;
             }
 
             log.debug("*** 블랙잭");
-            return dealer.isDealerWin(player) ? PLAYER_LOSE : PLAYER_WIN;
+            return dealer.isDealerWin(user) ? PLAYER_LOSE : PLAYER_WIN;
         }
 
         dealer.play(deck);
 
         //플레이어 턴 실행
 
-        if(dealer.isTie(player)) {
+        if(dealer.isTie(user)) {
             log.debug("*** 무승부");
             return TIE;
         }
 
-        if(dealer.isBurst() && player.isBurst()) {
+        if(dealer.isBurst() && user.isBurst()) {
             log.debug("*** 둘다 버스트");
             return PLAYER_LOSE;
         }
 
-        if(player.isBurst()) {
+        if(user.isBurst()) {
             log.debug("*** 플레이어 버스트");
             return PLAYER_LOSE;
         }
@@ -74,17 +74,17 @@ public class Game {
             return PLAYER_WIN;
         }
 
-        return dealer.isDealerWin(player) ? PLAYER_LOSE : PLAYER_WIN;
+        return dealer.isDealerWin(user) ? PLAYER_LOSE : PLAYER_WIN;
     }
 
     public void close() {
         this.bet = new Chip(ZERO);
         this.dealer.initialize();
-        this.player.initialize();
+        this.user.initialize();
         this.deck = Deck.newInstance();
     }
 
     public boolean isBlackjack() {
-        return dealer.isBlackjack() || player.isBlackjack();
+        return dealer.isBlackjack() || user.isBlackjack();
     }
 }

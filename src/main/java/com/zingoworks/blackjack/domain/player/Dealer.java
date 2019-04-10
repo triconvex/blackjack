@@ -7,14 +7,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Dealer extends BasePlayer {
-    public boolean isDealerWin(Player player) {
+    public boolean isDealerWin(User user) {
         //TODO refactoring
-        return getHand().getTotal() > player.getHand().getTotal();
+        return getHand().getTotal() > user.getHand().getTotal();
     }
 
-    public boolean isTie(Player player) {
+    public boolean isTie(User user) {
         //TODO refactoring
-        return getHand().getTotal() == player.getHand().getTotal();
+        return getHand().getTotal() == user.getHand().getTotal();
     }
 
     public void play(Deck deck) {
