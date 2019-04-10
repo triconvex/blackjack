@@ -9,7 +9,7 @@
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
-.idea/**/usage.statistics.xml
+.idea/**/usage.statistics.xmlg
 .idea/**/dictionaries
 .idea/**/shelf
 
@@ -137,19 +137,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-### Web ###
-*.asp
-*.cer
-*.csr
-*.css
-*.htm
-*.html
-*.js
-*.jsp
-*.php
-*.rss
-*.xhtml
 
 ### Gradle ###
 .gradle
