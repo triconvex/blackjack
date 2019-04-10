@@ -24,10 +24,10 @@ dependencies {
     implementation 'org.webjars:sockjs-client:1.1.2'
     implementation 'org.webjars:jquery:3.3.1'
     implementation 'org.webjars:webjars-locator:0.30'
+    implementation 'com.h2database:h2'
 
-    runtimeOnly 'com.h2database:h2:1.4.199'
 //    runtimeOnly 'mysql:mysql-connector-java'
 
-    testImplementation 'org.assertj: assertj-core:3.12.2'
+    testImplementation 'org.assertj:assertj-core:3.12.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

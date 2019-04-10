@@ -29,10 +29,14 @@ public class User extends BasePlayer {
     @Column(nullable = false, length = 20)
     private String name;
 
-    @Transient
+    @Embedded
     private Chip chip = new Chip(DEFAULT_CHIP_AMOUNT);
 
     public void betChip(int amount) {
         this.chip = this.chip.subtract(amount);
+    }
+
+    public boolean isVerified(String password) {
+        return this.password.equals(password);
     }
 }

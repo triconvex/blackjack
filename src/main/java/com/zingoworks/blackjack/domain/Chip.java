@@ -5,12 +5,22 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
+@Embeddable
 public class Chip {
+
+    @Column
     private final int amount;
+
+    private Chip() {
+        this.amount = 0;
+    }
 
     public Chip(int amount) {
         this.amount = amount;
