@@ -1,14 +1,12 @@
 package com.zingoworks.blackjack.domain.player;
 
 import com.zingoworks.blackjack.domain.Chip;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-@Getter
-@Setter
+@Data
 @Entity
 public class User extends BasePlayer {
     public static final int DEFAULT_CHIP_AMOUNT = 2000;

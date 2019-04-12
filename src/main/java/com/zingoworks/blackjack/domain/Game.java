@@ -13,8 +13,6 @@ import static com.zingoworks.blackjack.domain.ResultType.*;
 @Slf4j
 @Getter
 @Setter
-@EqualsAndHashCode
-@ToString
 public class Game {
     public static final int ZERO = 0;
 

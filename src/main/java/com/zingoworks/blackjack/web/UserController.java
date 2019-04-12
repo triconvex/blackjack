@@ -36,35 +36,38 @@ public class UserController {
         return "user/login";
     }
 
-//    @PostMapping("/login")
-//    public String login(HttpSession session, String userId, String password, Model model) {
-//        try {
-//            User user = userService.login(userId, password);
-//            session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user);
-//            log.info("*** userId : " + userId + ", password : " + password);
-//        } catch (Exception e) {
-//            log.debug("*** error : {}, {}", e.getMessage(), e.getStackTrace());
-//            model.addAttribute("errorMessage", "아이디 또는 비밀번호가 틀립니다. 다시 로그인 해주세요.");
-//            return "user/login";
-//        }
-//        return "redirect:/";
-//    }
-//
-//    @GetMapping("/logout")
-//    public String logout(HttpSession session) {
-//        session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY);
-//        return "redirect:/";
-//    }
-//
+    @PostMapping("/login")
+    public String login(HttpSession session, String userId, String password, Model model) {
+        try {
+            User user = userService.login(userId, password);
+            session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user);
+            log.info("*** userId : " + userId + ", password : " + password);
+        } catch (Exception e) {
+            log.debug("*** error : {}, {}", e.getMessage(), e.getStackTrace());
+            model.addAttribute("errorMessage", "아이디 또는 비밀번호가 틀립니다. 다시 로그인 해주세요.");
+            return "user/login";
+        }
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY);
+        return "redirect:/";
+    }
+
     @GetMapping
     public String list(HttpSession session, Model model) {
         List<User> allUsers = userService.findAll();
         model.addAttribute("users", allUsers);
 
         User loginUser = HttpSessionUtils.getUserFromSession(session);
+
         if(loginUser != null) {
+            log.debug("내랭크는: {}", userService.getRank(loginUser, allUsers));
             model.addAttribute("userRank", userService.getRank(loginUser, allUsers));
         }
+
         return "/user/list";
     }
 

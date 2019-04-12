@@ -4,7 +4,6 @@ import com.zingoworks.blackjack.domain.player.User;
 import com.zingoworks.blackjack.domain.player.UserRepository;
 import com.zingoworks.blackjack.exception.NotFoundUserException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,11 @@ import static org.springframework.data.domain.Sort.Direction.DESC;
 @Service
 public class UserService {
 
-    @Autowired
     private UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public User add(User user) {
         return userRepository.save(user);
@@ -42,11 +44,11 @@ public class UserService {
         return rank;
     }
 
-//    public User login(String userId, String password) throws NotFoundUserException {
-//        return userRepository.findByUserId(userId)
-//                .filter(user -> user.isVerified(password))
-//                .orElseThrow(NotFoundUserException::new);
-//    }
+    public User login(String userId, String password) throws NotFoundUserException {
+        return userRepository.findByUserId(userId)
+                .filter(user -> user.isVerified(password))
+                .orElseThrow(NotFoundUserException::new);
+    }
 //
 //    public User update(User loginUser, long id, User updatedUser) {
 //        User original = findByUserId(loginUser, id);
