@@ -36,4 +36,5 @@ public class BasePlayer implements BlackjackPlayer {
     public Hand getHand() {
         return hand;
     }
+
 }

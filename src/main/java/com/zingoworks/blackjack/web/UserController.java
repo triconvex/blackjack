@@ -2,6 +2,7 @@ package com.zingoworks.blackjack.web;
 
 import com.zingoworks.blackjack.domain.player.User;
 import com.zingoworks.blackjack.security.HttpSessionUtils;
+import com.zingoworks.blackjack.security.LoginUser;
 import com.zingoworks.blackjack.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class UserController {
 
     @PostMapping("")
     public String create(User user) {
+        System.out.println(user);
         userService.add(user);
         return "redirect:/";
     }
@@ -76,17 +78,18 @@ public class UserController {
         model.addAttribute("user", userService.findById(id));
         return "/user/profile";
     }
-//
-//    @GetMapping("/{id}/form")
-//    public String updateForm(User loginUser, @PathVariable long id, Model model) {
-//        log.debug("LoginUser : {}", loginUser);
-//        model.addAttribute("user", userService.findById(loginUser, id));
-//        return "/user/updateForm";
-//    }
-//
-//    @PutMapping("/{id}")
-//    public String update(User loginUser, @PathVariable long id, User target) {
-//        userService.update(loginUser, id, target);
-//        return "redirect:/users";
-//    }
+
+    @GetMapping("/{id}/form")
+    public String updateForm(@LoginUser User loginUser, @PathVariable long id, Model model) {
+        log.debug("LoginUser : {}", loginUser);
+        model.addAttribute("user", userService.findById(loginUser, id));
+        return "/user/updateForm";
+    }
+
+    @PutMapping("/{id}")
+    public String update(@LoginUser User loginUser, @PathVariable long id, User target) {
+        userService.update(loginUser, id, target);
+        return "redirect:/users";
+    }
+
 }

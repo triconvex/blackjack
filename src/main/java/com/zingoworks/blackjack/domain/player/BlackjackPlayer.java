@@ -11,4 +11,5 @@ public interface BlackjackPlayer {
     boolean isBurst();
 
     boolean isBlackjack();
+
 }

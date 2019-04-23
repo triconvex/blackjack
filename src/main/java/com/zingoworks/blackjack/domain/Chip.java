@@ -18,7 +18,7 @@ public class Chip {
     @Column
     private final int amount;
 
-    private Chip() {
+    public Chip() {
         this.amount = 0;
     }
 
@@ -36,4 +36,5 @@ public class Chip {
         }
         return new Chip(this.amount - amount);
     }
+
 }
