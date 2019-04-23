@@ -5,6 +5,7 @@ import com.zingoworks.blackjack.domain.ResultType;
 import com.zingoworks.blackjack.domain.player.User;
 
 public class BlackjackMain {
+
     public static void main(String[] args) {
         User user = new User();
         Game game = new Game(user);
@@ -18,4 +19,5 @@ public class BlackjackMain {
 
         game.close();
     }
+
 }

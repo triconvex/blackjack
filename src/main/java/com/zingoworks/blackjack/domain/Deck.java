@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
+
     private List<Card> deck = new ArrayList<>();
 
     private Deck() {
@@ -35,4 +36,5 @@ public class Deck {
 
         Collections.shuffle(deck);
     }
+
 }

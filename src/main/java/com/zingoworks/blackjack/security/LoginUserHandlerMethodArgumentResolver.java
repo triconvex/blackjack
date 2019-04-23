@@ -2,7 +2,6 @@ package com.zingoworks.blackjack.security;
 
 import com.zingoworks.blackjack.domain.player.User;
 import org.springframework.core.MethodParameter;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;

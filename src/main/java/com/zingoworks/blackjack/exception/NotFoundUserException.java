@@ -1,6 +1,7 @@
 package com.zingoworks.blackjack.exception;
 
 public class NotFoundUserException extends RuntimeException {
+
     public NotFoundUserException() {
         super();
     }
@@ -20,4 +21,5 @@ public class NotFoundUserException extends RuntimeException {
     protected NotFoundUserException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
+
 }

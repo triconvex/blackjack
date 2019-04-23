@@ -1,12 +1,12 @@
 package com.zingoworks.blackjack.domain.card;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class Card {
+
     public static final int MAX_CARD_NUMBER = 10;
     public static final int MIN_CARD_RANGE = 1;
     public static final int MAX_CARD_RANGE = 13;
@@ -56,4 +56,5 @@ public class Card {
                 ", name='" + name + '\'' +
                 '}';
     }
+
 }

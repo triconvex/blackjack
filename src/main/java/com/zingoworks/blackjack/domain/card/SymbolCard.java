@@ -1,6 +1,7 @@
 package com.zingoworks.blackjack.domain.card;
 
 public enum SymbolCard {
+
     ACE(1),
     JACK(11),
     QUEEN(12),
@@ -21,4 +22,5 @@ public enum SymbolCard {
 
         return null;
     }
+
 }

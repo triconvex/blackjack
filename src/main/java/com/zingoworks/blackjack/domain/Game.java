@@ -14,6 +14,7 @@ import static com.zingoworks.blackjack.domain.ResultType.*;
 @Getter
 @Setter
 public class Game {
+
     public static final int ZERO = 0;
 
     private Dealer dealer = new Dealer();
@@ -85,4 +86,5 @@ public class Game {
     public boolean isBlackjack() {
         return dealer.isBlackjack() || user.isBlackjack();
     }
+
 }

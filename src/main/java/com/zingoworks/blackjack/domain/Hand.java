@@ -10,6 +10,7 @@ import static com.zingoworks.blackjack.domain.HandType.*;
 
 @ToString
 public class Hand {
+
     public static final int BLACKJACK_NUMBER = 21;
     public static final int ACE_RULE_NUMBER = 10;
 
@@ -46,4 +47,5 @@ public class Hand {
 
         return false;
     }
+
 }

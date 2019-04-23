@@ -1,6 +1,5 @@
 package com.zingoworks.blackjack.config;
 
-
 import com.zingoworks.blackjack.security.LoginUserHandlerMethodArgumentResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

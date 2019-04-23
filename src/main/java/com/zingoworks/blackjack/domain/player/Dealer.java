@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Dealer extends BasePlayer {
+
     public boolean isDealerWin(User user) {
         //TODO refactoring
         return getHand().getTotal() > user.getHand().getTotal();
@@ -22,4 +23,5 @@ public class Dealer extends BasePlayer {
             getHand().receiveCard(deck.pop());
         }
     }
+
 }
